@@ -1,0 +1,7 @@
+config HARDWARE_INFO_HQ
+	tristate "use huaqin hardware info"
+	default y
+	---help---
+	Select the item to use huaqin hardware info driver.
+	Then you can read device node to get hardware info.
+

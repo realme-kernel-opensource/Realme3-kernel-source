@@ -1,0 +1,30 @@
+config TOUCHSCREEN_ILI9881H
+	bool "ILI9881H support"
+	default n
+	help
+	  Say Y here if you have ILI9881H touch panel.
+
+	  If unsure, say N.
+
+	  To compile this dirver as a module, choose M here: the
+	  module will be called.
+
+config TOUCHSCREEN_MTK_NT36xxx_HOSTDL_SPI
+	bool "NT36xxx SPI support"
+	default n
+	help
+	  Say Y here if you have NT36xxx touch panel.
+
+	  If unsure, say N.
+
+	  To compile this dirver as a module, choose M here: the
+	  module will be called.
+
+
+if TOUCHSCREEN_ILI9881H
+source "drivers/input/touchscreen/mediatek/hq/ipio_touch_driver-v1.0.3.8/Kconfig"
+endif
+
+if TOUCHSCREEN_MTK_NT36xxx_HOSTDL_SPI
+source "drivers/input/touchscreen/mediatek/hq/nt36525_green/Kconfig"
+endif

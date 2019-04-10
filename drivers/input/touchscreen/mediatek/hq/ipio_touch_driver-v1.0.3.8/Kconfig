@@ -1,0 +1,13 @@
+#
+# ILITEK ILI9881H touchscreen driver configuration
+#
+config TOUCHSCREEN_ILI9881H
+	bool "ILI9881H support"
+	default n
+	help
+	  Say Y here if you have ILI9881H touch panel.
+
+	  If unsure, say N.
+
+	  To compile this dirver as a module, choose M here: the
+	  module will be called.

@@ -1,0 +1,2 @@
+obj-$(CONFIG_TOUCHSCREEN_MTK_NT36xxx_HOSTDL_SPI) += nt36525_green/
+obj-$(CONFIG_TOUCHSCREEN_ILI9881H) += ipio_touch_driver-v1.0.3.8/

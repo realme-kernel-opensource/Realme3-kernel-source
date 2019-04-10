@@ -1,0 +1,73 @@
+/********************************************
+ ** Copyright (C) 2018 OPPO Mobile Comm Corp. Ltd.
+ ** ODM_HQ_EDIT
+ ** File: lcd_bias.dtsi
+ ** Description: Source file for LCD bias
+ **          To Control LCD bias voltage
+ ** Version :1.0
+ ** Date : 2018/10/03
+ ** Author: Liyan@ODM_HQ.Multimedia.LCD
+ ** ---------------- Revision History: --------------------------
+ ** <version>    <date>          < author >              <desc>
+ **  1.0           2018/10/03   Liyan@ODM_HQ   Source file for LCD bias
+ ********************************************/
+
+/ {
+	lcd_bias:lcd_bias {
+		compatible = "mediatek,gpio_lcd_bias";
+	};
+};
+
+&i2c3 {
+	i2c_lcd_bias@3e {
+		compatible = "mediatek,i2c_lcd_bias";
+		reg = <0x3e>;
+	};
+};
+
+&lcd_bias {
+	pinctrl-names = "default", "lcd_bias_gpio_enp0", "lcd_bias_gpio_enp1", "lcd_bias_gpio_enn0", "lcd_bias_gpio_enn1";
+	pinctrl-0 = <&lcd_bias_pins_default>;
+	pinctrl-1 = <&lcd_bias_pins_enp0>;
+	pinctrl-2 = <&lcd_bias_pins_enp1>;
+	pinctrl-3 = <&lcd_bias_pins_enn0>;
+	pinctrl-4 = <&lcd_bias_pins_enn1>;
+	status = "okay";
+};
+
+&pio {
+	lcd_bias_pins_enp0: lcd_bias_gpio_enp0 {
+		pins_cmd_dat {
+			pins = <PINMUX_GPIO23__FUNC_GPIO23>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+
+	lcd_bias_pins_enp1: lcd_bias_gpio_enp1 {
+		pins_cmd_dat {
+			pins = <PINMUX_GPIO23__FUNC_GPIO23>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+
+	lcd_bias_pins_enn0: lcd_bias_gpio_enn0 {
+		pins_cmd_dat {
+			pins = <PINMUX_GPIO21__FUNC_GPIO21>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+
+	lcd_bias_pins_enn1: lcd_bias_gpio_enn1 {
+		pins_cmd_dat {
+			pins = <PINMUX_GPIO21__FUNC_GPIO21>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+
+	lcd_bias_pins_default: default {
+	};
+};
